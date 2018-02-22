@@ -1,11 +1,14 @@
+//Dependencies
 import { Component, ViewChild } from '@angular/core';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Platform, MenuController, Nav } from 'ionic-angular';
 
-
+// Pages
 import { HomePage } from '../pages/home/home';
 import { SearchMoviesPage } from '../pages/search-movies/search-movies';
+import { FavouritesPage } from '../pages/favourites/favourites';
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -30,7 +33,8 @@ export class MyApp {
 
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'Search', component: SearchMoviesPage }
+      { title: 'Search', component: SearchMoviesPage },
+      { title: 'Favourites', component: FavouritesPage }
     ]
 
   }

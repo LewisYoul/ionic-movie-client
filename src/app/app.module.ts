@@ -6,15 +6,19 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { HttpClientModule } from '@angular/common/http';
 
 import { MyApp } from './app.component';
+
 import { HomePage } from '../pages/home/home';
 import { SearchMoviesPage } from '../pages/search-movies/search-movies'
+import { FavouritesPage } from '../pages/favourites/favourites'
+
 import { DataProvider } from '../providers/data/data';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    SearchMoviesPage
+    SearchMoviesPage,
+    FavouritesPage
   ],
   imports: [
     BrowserModule,
@@ -25,7 +29,8 @@ import { DataProvider } from '../providers/data/data';
   entryComponents: [
     MyApp,
     HomePage,
-    SearchMoviesPage
+    SearchMoviesPage,
+    FavouritesPage
   ],
   providers: [
     StatusBar,
