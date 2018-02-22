@@ -16,9 +16,13 @@
 <ion-content padding>
   <form>
     <input id="movie" type="text" name="movie">
-    <button (click)="findMovie($event)">Find Movie1</button>
+    <button (click)="findMovie($event)">Find Movie</button>
   </form>
   <ion-list>
-    <p *ngFor=" let movie of returnedMovies">{{ movie.title }}</p>
+    <div *ngFor=" let movie of returnedMovies">
+      <p>{{ movie.title }}</p>
+      <p>{{ movie.overview }}</p>
+      <img src="http://image.tmdb.org/t/p/w185{{ movie.poster_path }}">
+    </div>
   </ion-list>
 </ion-content>
