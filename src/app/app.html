@@ -1,13 +1,13 @@
 <ion-menu [content]="content">
   <ion-header>
-    <ion-toolbar>
+    <ion-toolbar color="secondary">
       <ion-title>Movie App</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <ion-content>
     <ion-list>
-      <button ion-item *ngFor="let page of pages" (click)="openPage(page)">
+      <button color="dark" ion-item *ngFor="let page of pages" (click)="openPage(page)">
         {{ page.title }}
       </button>
     </ion-list>
