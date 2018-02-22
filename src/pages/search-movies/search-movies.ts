@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { DataProvider } from '../../providers/data/data'
 
 /**
  * Generated class for the SearchMoviesPage page.
@@ -15,11 +16,25 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class SearchMoviesPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public dataProvider: DataProvider
+  ) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SearchMoviesPage');
   }
 
+  findMovie = (event) => {
+    event.preventDefault()
+    var movieInput = document.getElementById('movie')['value']
+    this.dataProvider.searchMovieDb(movieInput).then(
+      res => {
+        console.log(res)
+        // this.onMovieSearch.emit(res);
+      }
+    )
+    document.getElementById('movie')['value'] = ''
+  }
 }
