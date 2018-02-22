@@ -16,6 +16,8 @@ import { DataProvider } from '../../providers/data/data'
 })
 export class SearchMoviesPage {
 
+  returnedMovies:any
+
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -32,6 +34,7 @@ export class SearchMoviesPage {
     this.dataProvider.searchMovieDb(movieInput).then(
       res => {
         console.log(res)
+        this.returnedMovies = res
         // this.onMovieSearch.emit(res);
       }
     )

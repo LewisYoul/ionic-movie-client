@@ -18,4 +18,7 @@
     <input id="movie" type="text" name="movie">
     <button (click)="findMovie($event)">Find Movie1</button>
   </form>
+  <ion-list>
+    <p *ngFor=" let movie of returnedMovies">{{ movie.title }}</p>
+  </ion-list>
 </ion-content>
