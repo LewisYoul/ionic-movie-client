@@ -22,4 +22,23 @@ export class DataProvider {
         return res['results']
       });
   }
+
+  postMovieToDb = (movie) => {
+    console.log(movie)
+    this.http.post('http://localhost:3000/movies', {
+      title: movie.title,
+      overview: movie.overview,
+      poster_path: movie.poster_path,
+      release_date: movie.release_date,
+      vote_average: movie.vote_average
+    })
+      .subscribe(
+        res => {
+          console.log(res)
+        },
+        err => {
+          console.log(err)
+        }
+      );
+  }
 }

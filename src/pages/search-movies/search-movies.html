@@ -24,6 +24,7 @@
       <p>{{ movie.title }}</p>
       <p>{{ movie.overview }}</p>
       <img src="http://image.tmdb.org/t/p/w185{{ movie.poster_path }}">
+      <button (click)="saveMovie($event, movie)">Favourite</button>
     </div>
   </ion-list>
 </ion-content>

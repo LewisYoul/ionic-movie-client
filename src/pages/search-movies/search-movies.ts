@@ -40,4 +40,9 @@ export class SearchMoviesPage {
     )
     document.getElementById('movie')['value'] = ''
   }
+
+  saveMovie = (event, movie) => {
+    event.preventDefault();
+    this.dataProvider.postMovieToDb(movie)
+  }
 }
