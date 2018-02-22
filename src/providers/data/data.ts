@@ -49,4 +49,20 @@ export class DataProvider {
         return res;
       });
   }
+
+  updateRatings = (movie) => {
+    this.http.put(`http://localhost:3000/movies/${movie.id}`, {
+      movie: {
+        ranking: movie.ranking
+      }
+    })
+      .subscribe(
+        res => {
+          console.log(res)
+        },
+        err => {
+          console.log(err)
+        }
+      );
+  }
 }

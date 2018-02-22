@@ -19,5 +19,9 @@
     <p>{{ movie.title }}</p>
     <p>{{ movie.overview }}</p>
     <img src="http://image.tmdb.org/t/p/w185{{ movie.poster_path }}">
+    <p>{{ movie.ranking }}</p>
+    <button (click)="moveUp(movie.ranking)">Up</button>
+    <button (click)="moveDown(movie.ranking)">Down</button>
   </div>
+  <button (click)="saveRatings()">Save Favourites</button>
 </ion-content>
