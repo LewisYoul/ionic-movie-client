@@ -41,4 +41,12 @@ export class DataProvider {
         }
       );
   }
+
+  getFavourites = () => {
+    return this.http.get('http://localhost:3000/movies')
+      .toPromise()
+      .then(res => {
+        return res;
+      });
+  }
 }
