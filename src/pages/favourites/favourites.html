@@ -15,5 +15,9 @@
 
 
 <ion-content padding>
-
+  <div *ngFor="let movie of favouritesData">
+    <p>{{ movie.title }}</p>
+    <p>{{ movie.overview }}</p>
+    <img src="http://image.tmdb.org/t/p/w185{{ movie.poster_path }}">
+  </div>
 </ion-content>

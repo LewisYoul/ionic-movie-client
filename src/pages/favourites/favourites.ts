@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { DataProvider } from '../../providers/data/data';
 
 /**
  * Generated class for the FavouritesPage page.
@@ -15,7 +16,19 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class FavouritesPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  favouritesData: any
+
+  constructor(
+    public dataProvider: DataProvider,
+    public navCtrl: NavController,
+    public navParams: NavParams
+  ) {}
+
+  ngOnInit() {
+    this.dataProvider.getFavourites().then(res => {
+      this.favouritesData = res;
+      console.log(this.favouritesData)
+    })
   }
 
   ionViewDidLoad() {
