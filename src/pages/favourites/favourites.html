@@ -16,12 +16,17 @@
 
 <ion-content padding>
   <div text-center *ngFor="let movie of favouritesData; let i = index">
-    <p>{{ movie.title }}</p>
-    <p>{{ movie.overview }}</p>
-    <img src="http://image.tmdb.org/t/p/w185{{ movie.poster_path }}">
-    <p>{{ movie.ranking }}</p>
-    <button *ngIf="i > 0" (click)="moveUp(movie.ranking)">Up</button>
-    <button *ngIf="i < favouritesData.length - 1" (click)="moveDown(movie.ranking)">Down</button>
+    <ion-title>{{ movie.ranking }} - {{ movie.title }}</ion-title>
+    <!-- <img src="http://image.tmdb.org/t/p/w185{{ movie.poster_path }}"> -->
+    <ion-img width="185" height="278" src="http://image.tmdb.org/t/p/w185{{ movie.poster_path }}"></ion-img>
+    <ion-row>
+      <ion-col>
+        <button ion-button *ngIf="i > 0" (click)="moveUp(movie.ranking)">Up</button>
+      </ion-col>
+      <ion-col>
+        <button ion-button *ngIf="i < favouritesData.length - 1" (click)="moveDown(movie.ranking)">Down</button>
+      </ion-col>
+    </ion-row>
   </div>
-  <button (click)="saveRatings()">Save Favourites</button>
+  <button ion-button block outline (click)="saveRatings()">Save Favourites</button>
 </ion-content>
