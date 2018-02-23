@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { SearchMoviesPage } from '../search-movies/search-movies'
+import { Angular2TokenService } from 'angular2-token'
 
 @Component({
   selector: 'page-home',
@@ -8,14 +9,29 @@ import { SearchMoviesPage } from '../search-movies/search-movies'
 })
 export class HomePage {
 
-  user = {}
+  user:object
 
-  constructor(public navCtrl: NavController) {
+  constructor(
+    public navCtrl: NavController,
+    private tokenAuthService:Angular2TokenService
+  ) {
 
   }
 
   logForm = () => {
     console.log(this.user);
-    this.navCtrl.push(SearchMoviesPage)
+
+    this.tokenAuthService.signIn(this.user).subscribe(
+      res => {
+        if (res.status == 200) {
+          this.navCtrl.push(SearchMoviesPage)
+        }
+      },
+
+      err => {
+        console.log('err:', err);
+      }
+    )
+
   }
 }
