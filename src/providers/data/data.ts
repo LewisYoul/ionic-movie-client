@@ -10,6 +10,8 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class DataProvider {
 
+  isSignedIn:boolean = false;
+
   constructor(public http: HttpClient) {
     console.log('Hello DataProvider Provider');
   }
