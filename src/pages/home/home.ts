@@ -9,7 +9,7 @@ import { Angular2TokenService } from 'angular2-token'
 })
 export class HomePage {
 
-  user:object
+  user:any = {}
 
   constructor(
     public navCtrl: NavController,
@@ -24,7 +24,7 @@ export class HomePage {
     this.tokenAuthService.signIn(this.user).subscribe(
       res => {
         if (res.status == 200) {
-          this.navCtrl.push(SearchMoviesPage)
+          this.navCtrl.setRoot(SearchMoviesPage)
         }
       },
 
