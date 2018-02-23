@@ -17,6 +17,7 @@ import { DataProvider } from '../../providers/data/data';
 export class FavouritesPage {
 
   favouritesData: any
+  cloneArray: any
 
   constructor(
     public dataProvider: DataProvider,

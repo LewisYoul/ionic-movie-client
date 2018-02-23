@@ -15,13 +15,13 @@
 
 
 <ion-content padding>
-  <div text-center *ngFor="let movie of favouritesData">
+  <div text-center *ngFor="let movie of favouritesData; let i = index">
     <p>{{ movie.title }}</p>
     <p>{{ movie.overview }}</p>
     <img src="http://image.tmdb.org/t/p/w185{{ movie.poster_path }}">
     <p>{{ movie.ranking }}</p>
-    <button (click)="moveUp(movie.ranking)">Up</button>
-    <button (click)="moveDown(movie.ranking)">Down</button>
+    <button *ngIf="i > 0" (click)="moveUp(movie.ranking)">Up</button>
+    <button *ngIf="i < favouritesData.length - 1" (click)="moveDown(movie.ranking)">Down</button>
   </div>
   <button (click)="saveRatings()">Save Favourites</button>
 </ion-content>
