@@ -10,5 +10,15 @@
 
 <ion-content padding>
   A place to find and save your favourite movies!
-  <button (click)="logIn()">Log In</button>
+  <form (ngSubmit)="logForm()">
+    <ion-item>
+      <ion-label>Email</ion-label>
+      <ion-input type="email" [(ngModel)]="user.email" name="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Password</ion-label>
+      <ion-input type="password" [(ngModel)]="user.password" name="password"></ion-input>
+    </ion-item>
+    <button ion-button type="submit" block>Log in</button>
+  </form>
 </ion-content>

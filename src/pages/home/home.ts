@@ -8,11 +8,14 @@ import { SearchMoviesPage } from '../search-movies/search-movies'
 })
 export class HomePage {
 
+  user = {}
+
   constructor(public navCtrl: NavController) {
 
   }
 
-  logIn = () => {
+  logForm = () => {
+    console.log(this.user);
     this.navCtrl.push(SearchMoviesPage)
   }
 }
