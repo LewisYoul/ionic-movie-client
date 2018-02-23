@@ -3,6 +3,8 @@ import { NavController } from 'ionic-angular';
 import { SearchMoviesPage } from '../search-movies/search-movies'
 import { Angular2TokenService } from 'angular2-token'
 import { DataProvider } from '../../providers/data/data';
+import {environment} from "../../app/environments/environment";
+
 
 @Component({
   selector: 'page-home',
@@ -17,7 +19,7 @@ export class HomePage {
     public navCtrl: NavController,
     private tokenAuthService:Angular2TokenService
   ) {
-
+    this.tokenAuthService.init(environment.token_auth_config);
   }
 
   logForm = () => {
@@ -26,7 +28,10 @@ export class HomePage {
     this.tokenAuthService.signIn(this.user).subscribe(
       res => {
         if (res.status == 200) {
+          this.dataProvider.isSignedIn = true;
           this.navCtrl.setRoot(SearchMoviesPage)
+          console.log(res)
+          console.log(res.headers.toJSON())
         }
       },
 

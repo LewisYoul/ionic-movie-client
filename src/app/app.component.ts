@@ -9,7 +9,6 @@ import { HomePage } from '../pages/home/home';
 import { SearchMoviesPage } from '../pages/search-movies/search-movies';
 import { FavouritesPage } from '../pages/favourites/favourites';
 import {Angular2TokenService} from "angular2-token";
-import {environment} from "./environments/environment";
 
 
 @Component({
@@ -29,7 +28,6 @@ export class MyApp {
     splashScreen: SplashScreen,
     private authToken: Angular2TokenService
   ) {
-    this.authToken.init(environment.token_auth_config)
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -50,7 +48,10 @@ export class MyApp {
   }
 
   logOut = () => {
-    this.authToken.signOut();
+    this.authToken.signOut().subscribe(
+      res => console.log(res),
+      err => console.log(err)
+    );
     this.menu.close();
     this.nav.setRoot(HomePage);
   }

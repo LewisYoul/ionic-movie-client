@@ -25,7 +25,7 @@ export class SearchMoviesPage {
   ) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SearchMoviesPage');
+    console.log(this.dataProvider.isSignedIn);
   }
 
   findMovie = (event) => {
