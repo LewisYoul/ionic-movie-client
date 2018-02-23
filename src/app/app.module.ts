@@ -4,6 +4,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 
 import { MyApp } from './app.component';
 
@@ -12,6 +13,7 @@ import { SearchMoviesPage } from '../pages/search-movies/search-movies'
 import { FavouritesPage } from '../pages/favourites/favourites'
 
 import { DataProvider } from '../providers/data/data';
+import { Angular2TokenService } from 'angular2-token';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { DataProvider } from '../providers/data/data';
   imports: [
     BrowserModule,
     HttpClientModule,
+    HttpModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -36,7 +39,9 @@ import { DataProvider } from '../providers/data/data';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    DataProvider
+    DataProvider,
+    Angular2TokenService,
+    HttpClientModule
   ]
 })
 export class AppModule {}
